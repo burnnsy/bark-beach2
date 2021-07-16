@@ -1,0 +1,9 @@
+<% layout("layouts/boilerplate") %>
+<h1>Dog Beaches</h1>
+<ul>
+  <% for(let b of beaches){ %>
+  <li><a href="/beaches/<%=b.id%>"> <%= b.title %></a></li>
+  <% } %>
+</ul>
+
+<button><a href="beaches/new">Add New</a></button>

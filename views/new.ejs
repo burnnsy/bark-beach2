@@ -1,0 +1,24 @@
+<% layout("layouts/boilerplate") %>
+
+<h1>Add New Beach</h1>
+
+<section>
+  <form action="/beaches" method="POST">
+    <label for="title"> Beach Name: </label>
+    <input type="text" name="title" id="title" placeholder="Beach Name" />
+
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" placeholder="City, State" />
+
+    <label for="membership">Membership Required:</label>
+    <select name="membership" id="membership">
+      <option value="true">Required</option>
+      <option value="false">Not Required</option>
+    </select>
+    <br />
+    <label for="description">About:</label>
+    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+    <br />
+    <button>Submit</button>
+  </form>
+</section>

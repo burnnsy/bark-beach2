@@ -27,16 +27,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
-  res.render('home', { webTitle: 'Bark Beach' });
+  res.render('beaches/home', { webTitle: 'Bark Beach' });
 });
 
 app.get('/beaches', async (req, res) => {
   const beaches = await DogBeach.find({});
-  res.render('index', { beaches, webTitle: 'All Beaches' });
+  res.render('beaches/index', { beaches, webTitle: 'All Beaches' });
 });
 
 app.get('/beaches/new', (req, res) => {
-  res.render('new', { webTitle: 'New Beach' });
+  res.render('beaches/new', { webTitle: 'New Beach' });
 });
 
 app.post('/beaches', async (req, res) => {
@@ -48,13 +48,13 @@ app.post('/beaches', async (req, res) => {
 app.get('/beaches/:id', async (req, res) => {
   const { id } = req.params;
   const beach = await DogBeach.findById(id);
-  res.render('details', { beach, webTitle: 'All Beaches' });
+  res.render('beaches/details', { beach, webTitle: 'All Beaches' });
 });
 
 app.get('/beaches/:id/edit', async (req, res) => {
   const { id } = req.params;
   const beach = await DogBeach.findById(id);
-  res.render('edit', { beach, webTitle: `Edit ${beach.title}` });
+  res.render('beaches/edit', { beach, webTitle: `Edit ${beach.title}` });
 });
 
 app.put('/beaches/:id', async (req, res) => {

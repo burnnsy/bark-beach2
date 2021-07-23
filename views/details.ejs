@@ -2,6 +2,17 @@
 
 <h1><%= beach.title %></h1>
 <h2><%=beach.location%></h2>
+<p><%= beach.description %></p>
+
 <img src="<%= beach.image%> " alt="" />
-<button><a href="/beaches">Go Back</a></button>
-<Button><a href="">Edit</a></Button>
+<section>
+  <button><a href="/beaches">Go Back</a></button>
+  <div>
+    <button><a href="/beaches/<%= beach.id %>/edit ">Edit</a></button>
+    <div>
+      <form action="/beaches/<%= beach.id %>/?_method=DELETE" method="POST">
+        <button>Delete</button>
+      </form>
+    </div>
+  </div>
+</section>

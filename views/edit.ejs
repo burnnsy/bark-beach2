@@ -1,0 +1,12 @@
+<% layout("layouts/boilerplate") %>
+
+<h1>Edit <%= beach.title %></h1>
+
+<form action="/beaches/<%= beach.id %>?_method=PUT" method="POST">
+  <label for="title">Beach Name: </label>
+  <input type="text" name="title" id="title" value="<%=beach.title%>" />
+
+  <label for="description"> Description</label>
+  <textarea name="description" id="description" cols="30" rows="10" value="<%= beach.description %> "></textarea>
+  <button>Edit</button>
+</form>

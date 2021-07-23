@@ -51,6 +51,24 @@ app.get('/beaches/:id', async (req, res) => {
   res.render('details', { beach, webTitle: 'All Beaches' });
 });
 
+app.get('/beaches/:id/edit', async (req, res) => {
+  const { id } = req.params;
+  const beach = await DogBeach.findById(id);
+  res.render('edit', { beach, webTitle: `Edit ${beach.title}` });
+});
+
+app.put('/beaches/:id', async (req, res) => {
+  const { id } = req.params;
+  const beach = await DogBeach.findByIdAndUpdate(id, req.body);
+  res.redirect(`/beaches/${id}`);
+});
+
+app.delete('/beaches/:id', async (req, res) => {
+  const { id } = req.params;
+  await DogBeach.findByIdAndDelete(id);
+  res.redirect('/beaches');
+});
+
 app.listen(3000, () => {
   console.log('Sever Up');
 });
